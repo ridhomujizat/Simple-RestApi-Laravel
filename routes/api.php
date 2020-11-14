@@ -18,12 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-RoutE::get('/products', array('middleware' => 'cors', 'uses' =>'ProdukController@get'));
+Route::get('/products', [ 'uses' =>'ProdukController@get']);
 
-RoutE::get('/product/{id}', array('middleware' => 'cors', 'uses' => 'ProdukController@getById'));
+Route::get('/product/{id}', [ 'uses' => 'ProdukController@getById']);
 
-RoutE::post('/product', array('middleware' => 'cors', 'uses' =>'ProdukController@post'));
+Route::post('/product', [ 'uses' =>'ProdukController@post']);
 
-RoutE::put('/product/{id}', array('middleware' => 'cors', 'uses' =>'ProdukController@put'));
+Route::put('/product/{id}', [ 'uses' =>'ProdukController@put']);
 
-RoutE::delete('/product/{id}', array('middleware' => 'cors', 'uses' =>'ProdukController@delete'));
+Route::delete('/product/{id}', [ 'uses' =>'ProdukController@delete']);
