@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,11 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-RoutE::get('/products', 'ProdukController@get');
-RoutE::get('/product/{id}', 'ProdukController@getById');
+RoutE::get('/products', array('middleware' => 'cors', 'uses' =>'ProdukController@get'));
 
-RoutE::post('/product', 'ProdukController@post');
+RoutE::get('/product/{id}', array('middleware' => 'cors', 'uses' => 'ProdukController@getById'));
 
-RoutE::put('/product/{id}', 'ProdukController@put');
+RoutE::post('/product', array('middleware' => 'cors', 'uses' =>'ProdukController@post'));
 
-RoutE::delete('/product/{id}', 'ProdukController@delete');
+RoutE::put('/product/{id}', array('middleware' => 'cors', 'uses' =>'ProdukController@put'));
+
+RoutE::delete('/product/{id}', array('middleware' => 'cors', 'uses' =>'ProdukController@delete'));
